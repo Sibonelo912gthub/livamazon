@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../firebase";
 import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
 
 function Login() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,9 +14,11 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push("/");
+        navigate("/");
       })
       .catch((error) => alert(error.message));
+
+    // Firebase login
   };
 
   const register = (e) => {
@@ -28,25 +30,26 @@ function Login() {
         // it successfully created a new user with email and password
         console.log(auth);
         if (auth) {
-          history.push("/");
+          navigate("/");
         }
       })
       .catch((error) => alert(error.message));
+    // Firebase register
   };
 
   return (
     <div className="login">
       <Link to="/">
         <img
-          className="login-logo"
+          className="login_logo"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
+          alt="Amazon Logo"
         />
       </Link>
 
-      <div className="login-container">
-        <h1>Sign-in</h1>
-
-        <form action="">
+      <div className="login_container">
+        <h1>Sign in</h1>
+        <form>
           <h5>E-mail</h5>
           <input
             type="text"
@@ -60,23 +63,22 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
-          <button type="submit" onClick={signIn} className="login-signInButton">
-            Sign In
+          <button onClick={signIn} type="submit" className="login_signInButton">
+            Sign in
           </button>
         </form>
 
         <p>
-          By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use &
-          Sale. Please see our Privacy Notice, our Cookies Notice and our
-          Interest-Based Ads Notice.
+          By continuing, you agree to Amazon Clone's Conditions of Use and
+          Privacy Notice.
         </p>
 
-        <button onClick={register} className="login-registerButton">
-          Create your Amazon Account
+        <button onClick={register} className="login_registerButton">
+          Register now
         </button>
       </div>
     </div>
   );
 }
+
 export default Login;

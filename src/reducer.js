@@ -9,6 +9,7 @@ export const getBasketTotal = (basket) =>
 
 const reducer = (state, action) => {
   console.log(action);
+
   switch (action.type) {
     case "ADD_TO_BASKET":
       return {
@@ -26,6 +27,7 @@ const reducer = (state, action) => {
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
       );
+
       let newBasket = [...state.basket];
 
       if (index >= 0) {
@@ -35,7 +37,6 @@ const reducer = (state, action) => {
           `Cant remove product (id: ${action.id}) as its not in basket!`
         );
       }
-
       return {
         ...state,
         basket: newBasket,

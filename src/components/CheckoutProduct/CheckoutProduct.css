@@ -1,0 +1,63 @@
+.checkoutProduct{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.checkoutProduct_info{
+    padding-left: 20px;
+
+}
+
+.checkoutProduct_info > button{
+    background-color: #ffdf00;
+    border: 1px solid;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 150px;
+    border-color: #ffdf00;
+    color: #111;
+    cursor: pointer;
+}
+
+.checkoutProduct_image{
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+}
+
+.checkoutProduct_rating{
+    display: flex;
+}
+
+.checkoutProduct_title{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.checkoutProduct_title:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.notification {
+    position: fixed; /* Position fixed to stay at the top right corner of the page */
+    margin-top: 50px;
+    width: 30%;
+    right: 20px; /* Adjust as needed */
+    border: 3px solid;
+    border-radius: 5px;
+    z-index: 9999;  /* Ensure the notification appears above other content */
+    flex-direction: column; /* Display notifications in a column */
+  align-items: flex-end; 
+  }
+  
+  .notification_content {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

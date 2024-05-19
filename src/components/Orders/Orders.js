@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import "./Orders.css";
 import { db } from "../../firebase";
 import { useStateValue } from "../../StateProvider";
-import Order from "./Order";
-import "./Orders.css";
+import Order from "../Order/Order";
 
 function Orders() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -31,7 +31,7 @@ function Orders() {
     <div className="orders">
       <h1>Your Orders</h1>
 
-      <div className="orders-order">
+      <div className="orders__order">
         {orders?.map((order) => (
           <Order order={order} />
         ))}
